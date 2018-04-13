@@ -6,11 +6,11 @@ import java.io.Serializable;
  * Created by Administrator on 2018/4/9.
  */
 
-public class Fruits   {
+public class Beauty {
     private String name;
     private String url;
 
-    public Fruits( String name,String url) {
+    public Beauty(String name, String url) {
         this.url = url;
         this.name = name;
     }

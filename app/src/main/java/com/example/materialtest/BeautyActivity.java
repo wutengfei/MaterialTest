@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-public class FruitActivity extends AppCompatActivity {
+public class BeautyActivity extends AppCompatActivity {
 
     public static final String FRUIT_NAME = "fruit_name";
 

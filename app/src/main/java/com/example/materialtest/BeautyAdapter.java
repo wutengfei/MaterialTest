@@ -1,6 +1,7 @@
 package com.example.materialtest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,14 +14,13 @@ import com.lidroid.xutils.BitmapUtils;
 
 import java.util.List;
 
-public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> {
+public class BeautyAdapter extends RecyclerView.Adapter<BeautyAdapter.ViewHolder> {
 
-    private static final String TAG = "FruitAdapter";
+    private static final String TAG = "BeautyAdapter";
 
     private Context mContext;
 
-    // private List<Fruit> mFruitList;
-    private List<Fruits> mFruitList;
+    private List<Beauty> mFruitList;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
@@ -35,10 +35,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
         }
     }
 
-    //    public FruitAdapter(List<Fruit> fruitList) {
-//        mFruitList = fruitList;
-//    }
-    public FruitAdapter(List<Fruits> fruitList) {
+    public BeautyAdapter(List<Beauty> fruitList) {
         mFruitList = fruitList;
     }
 
@@ -49,28 +46,26 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
         }
         View view = LayoutInflater.from(mContext).inflate(R.layout.fruit_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
-//        holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int position = holder.getAdapterPosition();
-//                Fruit fruit = mFruitList.get(position);
-//                Intent intent = new Intent(mContext, FruitActivity.class);
-//                intent.putExtra(FruitActivity.FRUIT_NAME, fruit.getName());
-//                intent.putExtra(FruitActivity.FRUIT_IMAGE_ID, fruit.getImageId());
-//                mContext.startActivity(intent);
-//            }
-//        });
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        // Fruit fruit = mFruitList.get(position);
-        final Fruits fruit = mFruitList.get(position);
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        final Beauty beauty = mFruitList.get(position);
 
-        holder.fruitName.setText(fruit.getName());
+        holder.fruitName.setText(beauty.getName());
         BitmapUtils bitmapUtils = new BitmapUtils(mContext);
-        bitmapUtils.display(holder.fruitImage, fruit.getUrl());
+        bitmapUtils.display(holder.fruitImage, beauty.getUrl());
+
+        holder.fruitImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ImageDetail.class);
+                intent.putExtra("imageUrl", beauty.getUrl());
+                mContext.startActivity(intent);
+
+            }
+        });
 
     }
 

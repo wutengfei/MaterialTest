@@ -21,9 +21,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FruitActivity"
-            android:theme="@style/FruitActivityTheme"></activity>
-
+            android:name=".BeautyActivity"
+            android:theme="@style/FruitActivityTheme" />
+        <activity android:name=".ImageDetail"></activity>
     </application>
 
 </manifest>
