@@ -24,18 +24,28 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
-private String urlRoot="https://raw.githubusercontent.com/wutengfei/Background/master";
+    private String urlRoot = "https://raw.githubusercontent.com/wutengfei/Background/master";
     private Fruits[] fruits = {
-            new Fruits("Apple", urlRoot+"/10.jpg"),
-            new Fruits("Banana",urlRoot+ "/11.jpg"),
-            new Fruits("Orange",urlRoot+"/12.jpg"),
-            new Fruits("Watermelon",urlRoot+ "/13.jpg"),
-            new Fruits("Pear",urlRoot+ "/14.jpg"),
-            new Fruits("Grape",urlRoot+ "/15.jpg"),
-            new Fruits("Pineapple",urlRoot+ "/16.jpg"),
-            new Fruits("Strawberry",urlRoot+ "/17.jpg"),
-            new Fruits("Cherry",urlRoot+ "/18.jpg"),
-            new Fruits("Mango",urlRoot+ "/19.jpg")};
+            new Fruits("1", urlRoot + "/1.jpg"),
+            new Fruits("2", urlRoot + "/2.jpg"),
+            new Fruits("3", urlRoot + "/3.jpg"),
+            new Fruits("4", urlRoot + "/4.jpg"),
+            new Fruits("5", urlRoot + "/5.jpg"),
+            new Fruits("6", urlRoot + "/6.jpg"),
+            new Fruits("7", urlRoot + "/7.jpg"),
+            new Fruits("8", urlRoot + "/8.jpg"),
+            new Fruits("9", urlRoot + "/9.jpg"),
+            new Fruits("10", urlRoot + "/10.jpg"),
+            new Fruits("11", urlRoot + "/11.jpg"),
+            new Fruits("12", urlRoot + "/12.jpg"),
+            new Fruits("13", urlRoot + "/13.jpg"),
+            new Fruits("14", urlRoot + "/14.jpg"),
+            new Fruits("15", urlRoot + "/15.jpg"),
+            new Fruits("16", urlRoot + "/16.jpg"),
+            new Fruits("17", urlRoot + "/17.jpg"),
+            new Fruits("18", urlRoot + "/18.jpg"),
+            new Fruits("19", urlRoot + "/19.jpg"),
+            new Fruits("20", urlRoot + "/20.jpg")};
 //    new Fruits("Apple", "http://www.xz7.com/up/2016-6/2016649319.png"),
 //            new Fruits("Banana","http://www.xz7.com/up/2016-6/2016649319.png"),
 //            new Fruits("Orange","http://www.xz7.com/up/2016-6/2016649319.png"),
@@ -47,7 +57,7 @@ private String urlRoot="https://raw.githubusercontent.com/wutengfei/Background/m
 //            new Fruits("Cherry","http://www.xz7.com/up/2016-6/2016649319.png"),
 //            new Fruits("Mango","http://www.xz7.com/up/2016-6/2016649319.png")};
 
-   // private List<Fruit> fruitList = new ArrayList<>();
+    // private List<Fruit> fruitList = new ArrayList<>();
     private List<Fruits> fruitList = new ArrayList<>();
 
     private FruitAdapter adapter;
@@ -76,29 +86,29 @@ private String urlRoot="https://raw.githubusercontent.com/wutengfei/Background/m
                 return true;
             }
         });
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Data deleted", Snackbar.LENGTH_SHORT)
-                        .setAction("Undo", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Toast.makeText(MainActivity.this, "Data restored", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .show();
-            }
-        });
+       // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Data deleted", Snackbar.LENGTH_SHORT)
+//                        .setAction("Undo", new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                Toast.makeText(MainActivity.this, "Data restored", Toast.LENGTH_SHORT).show();
+//                            }
+//                        })
+//                        .show();
+//            }
+//        });
 
-        //下载图片
-      //  download();
+
+
         //初始化图片到布局中
         initFruits();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
-      //  adapter = new FruitAdapter(fruitList);
+        //  adapter = new FruitAdapter(fruitList);
         adapter = new FruitAdapter(fruitList);
         recyclerView.setAdapter(adapter);
         swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
@@ -109,10 +119,6 @@ private String urlRoot="https://raw.githubusercontent.com/wutengfei/Background/m
                 refreshFruits();
             }
         });
-    }
-
-    private void download() {
-
     }
 
     private void refreshFruits() {
@@ -136,7 +142,7 @@ private String urlRoot="https://raw.githubusercontent.com/wutengfei/Background/m
         }).start();
     }
 
-//    private void initFruits() {
+    //    private void initFruits() {
 //        fruitList.clear();
 //        for (int i = 0; i < 50; i++) {
 //            Random random = new Random();
@@ -146,10 +152,10 @@ private String urlRoot="https://raw.githubusercontent.com/wutengfei/Background/m
 //    }
     private void initFruits() {
         fruitList.clear();
-        for (int i = 0; i < 50; i++) {
-            Random random = new Random();
-            int index = random.nextInt(fruits.length);
-            fruitList.add(fruits[index]);
+        for (int i = 0; i < 20; i++) {
+          //  Random random = new Random();
+          //  int index = random.nextInt(fruits.length);
+            fruitList.add(fruits[i]);
         }
     }
 
